@@ -9,6 +9,7 @@ export const AppContext = (props) => {
   const [searchResults, setSearchResults] = useState([]);
   const [selectCategories, setSelectCategories] = useState("New");
   const [mobileMenu, setMobileMenu] = useState(false);
+  const [noResult, setNoResult] = useState(false);
 
   useEffect(() => {
     fetchSelectedCategoryData(selectCategories);
@@ -34,6 +35,8 @@ export const AppContext = (props) => {
         setSelectCategories,
         mobileMenu,
         setMobileMenu,
+        noResult,
+        setNoResult,
       }}
     >
       {props.children}
