@@ -35,13 +35,13 @@ const SuggestionVideoCard = ({ video }) => {
                 ? `${abbreviateNumber(video?.stats?.viewers, 2)} watching`
                 : `${abbreviateNumber(video?.stats?.views, 2)} views`}
             </span>
-            {!liveOrNot && (
+            {!liveOrNot && video?.publishedTimeText && (
               <span className="flex text-[24px] leading-none font-bold text-white/[0.7] relative top-[-10px] mx-1">
                 .
               </span>
             )}
 
-            {!liveOrNot && (
+            {!liveOrNot && video?.publishedTimeText && (
               <span className="truncate">{video?.publishedTimeText}</span>
             )}
           </div>

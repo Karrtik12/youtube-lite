@@ -6,7 +6,7 @@ import { abbreviateNumber } from "js-abbreviation-number";
 import { CiStreamOn } from "react-icons/ci";
 
 const VideoCard = ({ video }) => {
-  const liveOrNot = video?.badges[0] === "LIVE";
+  const liveOrNot = video?.isLiveNow;
   return (
     <Link to={`/video/${video?.videoId}`}>
       <div className="flex flex-col mb-8">
@@ -16,7 +16,6 @@ const VideoCard = ({ video }) => {
             src={video?.thumbnails[0]?.url}
             alt=""
           />
-
           <VideoLength time={video?.lengthSeconds} live={liveOrNot} />
         </div>
         <div className="flex text-white mt-3">
@@ -45,13 +44,12 @@ const VideoCard = ({ video }) => {
                   ? `${abbreviateNumber(video?.stats?.viewers, 2)} watching`
                   : `${abbreviateNumber(video?.stats?.views, 2)} views`}
               </span>
-              {!liveOrNot && (
+              {!liveOrNot && video?.publishedTimeText && (
                 <span className="flex text-[24px] leading-none font-bold text-white/[0.7] relative top-[-10px] mx-1">
                   .
                 </span>
               )}
-
-              {!liveOrNot && (
+              {!liveOrNot && video?.publishedTimeText && (
                 <span className="truncate">{video?.publishedTimeText}</span>
               )}
             </div>
