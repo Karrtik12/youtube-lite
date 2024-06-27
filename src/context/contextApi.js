@@ -18,11 +18,10 @@ export const AppContext = (props) => {
   const fetchSelectedCategoryData = (query) => {
     setLoading(true);
     fetchDataFromApi(`search/?q=${query}`).then(({ contents }) => {
-      console.log(contents);
       setSearchResults(contents);
       setLoading(false);
-      setNoResult(false);
-      if (contents.isEmpty) setNoResult(true);
+      if (contents.length === 0) setNoResult(true);
+      else setNoResult(false);
     });
   };
 

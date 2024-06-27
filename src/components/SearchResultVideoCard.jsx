@@ -58,6 +58,14 @@ const SearchResultVideoCard = ({ video }) => {
           <span className="empty:hidden text-sm line-clamp-1 md:line-clamp-2 text-white/[0.7] md:pr-24 md:my-4">
             {video?.descriptionSnippet}
           </span>
+          <div className="flex font-semibold mt-1">
+            {liveOrNot && (
+              <div className="flex items-center bg-red-700 py-1 px-1.5 text-white text-xs rounded-sm">
+                <CiStreamOn className="mr-1" />
+                LIVE
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </Link>
