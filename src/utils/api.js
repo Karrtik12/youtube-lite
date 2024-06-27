@@ -18,6 +18,7 @@ export const fetchDataFromApi = async (url) => {
     const { data } = await axios.get(`${baseUrl}/${url}`, options);
     return data;
   } catch (error) {
+    alert(error.message);
     return { contents: [] };
   }
 };

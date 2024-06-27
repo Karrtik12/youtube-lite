@@ -21,6 +21,8 @@ export const AppContext = (props) => {
       console.log(contents);
       setSearchResults(contents);
       setLoading(false);
+      if (contents.isNotEmpty) setNoResult(false);
+      else setNoResult(true);
     });
   };
 
